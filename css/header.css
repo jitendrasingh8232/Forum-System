@@ -1,0 +1,141 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Calibri";
+    box-sizing: border-box;
+}
+:root{
+    --main-color:rgb(204, 6, 204);
+}
+#hamburgurmenudiv{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.86);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    transition: all 0.5s ease;
+}
+#hamburgurmenudiv ul{
+    list-style:none;
+    line-height: 55px;
+}
+#hamburgurmenudiv ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;;
+}
+
+#hamburgurmenudiv #canclebtn{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 40px;
+    right: 80px;
+    cursor: pointer;
+}
+
+#hamburgurmenudiv #canclebtn div{
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#hamburgurmenudiv #canclebtn div:first-child{
+    transform: rotate(45deg);
+}
+#hamburgurmenudiv #canclebtn div:nth-child(2){
+    transform: rotate(-45deg);
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #333;;
+}
+header > div{
+    display: flex;
+}
+header h2{
+    font-size: 30px;
+    color: #fff;;
+}
+header ul{
+    display: flex;
+    list-style: none;
+    margin-top: 8px;
+    margin-right: 15px;;
+}
+header ul li{
+    margin-right: 25px;
+}
+header ul li a{
+    color: #fff;
+    text-decoration: none;;
+    font-size: 20px;;
+}
+#hamburgermenu{
+    height: 30px;
+    width: 40px;
+    margin-top: 8px;
+    margin-right: 15px;
+    cursor: pointer;
+    display: none;
+}
+#hamburgermenu div{
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 8px;;
+}
+header button{
+    border: 2px solid var(--main-color);
+    background: transparent;
+    border-radius: 5px;
+    padding: 7px 25px;;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+header button:hover{
+    background-color: var(--main-color);
+    /* color: #222; */
+}
+#username{
+    border: 2px solid var(--main-color);
+    background: transparent;
+    border-radius: 5px;
+    padding: 7px 25px;;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+
+
+@media(max-width:766px){
+    #hamburgermenu{
+        display: block;
+    }
+    header ul{
+        display: none;
+    }
+}
+
+@media(max-width:385px){
+    #signup{
+        display: none;
+    }
+}

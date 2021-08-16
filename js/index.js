@@ -11,13 +11,15 @@ canclebtn.addEventListener("click",()=>{
 });
 
 let signup = document.getElementById("signup");
-signup.addEventListener("click",()=>{
-    let signupform = document.getElementById("signupform");
-    signupform.style.display = "block";
-
-    let container = document.getElementsByClassName("container")[0];
-    container.classList.add("active");
-});
+if(signup){
+    signup.addEventListener("click",()=>{
+        let signupform = document.getElementById("signupform");
+        signupform.style.display = "block";
+    
+        let container = document.getElementsByClassName("container")[0];
+        container.classList.add("active");
+    });
+}
 
 function removesignupform(){
     let signupform = document.getElementById("signupform");
@@ -87,3 +89,78 @@ signupformsubmitBtn.addEventListener("click",()=>{
 function removeMessageBox(elem){
     elem.parentElement.style.top = "-50px";
 }
+
+
+
+
+
+let login = document.getElementById("login");
+if(login){
+    login.addEventListener("click",()=>{
+        let loginform = document.getElementById("loginform");
+        loginform.style.display = "block";
+    
+        let container = document.getElementsByClassName("container")[0];
+        container.classList.add("active");
+    });
+}
+
+function removeloginform(){
+    let loginform = document.getElementById("loginform");
+    loginform.style.display = "none";
+
+    let container = document.getElementsByClassName("container")[0];
+    container.classList.remove("active");
+}
+
+let logincross = document.getElementById("logincross");
+logincross.addEventListener("click",removeloginform);
+
+
+let loginformsubmitBtn = document.getElementById("loginformsubmitBtn");
+loginformsubmitBtn.addEventListener("click",()=>{
+    console.log("clicked")
+    let email = document.getElementById("emailforLogin");
+    let password = document.getElementById("passwordforLogin");
+
+    let data = {
+        "email":email.value,
+        "password":password.value,
+    }
+    console.log(data)
+
+    data = JSON.stringify(data)
+
+    fetch("assets/login.php",{
+        method:"post",
+        body:data
+    }).then((response)=>{
+        return response.text();
+    }).then((data1)=>{
+        console.log(data1);
+        data1 = JSON.parse(data1);
+        if (data1['isfail'] == "success") {
+            console.log("This is an success");
+            removeloginform();
+            let loginandsignbutton = document.getElementById("loginandsignbutton");
+            loginandsignbutton.innerHTML = `<h3 id="username">${data1['username']}<h3>`;
+            let message = document.getElementsByClassName("message")[0];
+            message.innerHTML = `<p><strong>Success ! </strong>${data1['result']}</p><h2 class="removeMessage" onclick="removeMessageBox(this)">&times;</h2>`;
+            message.style.top = "0px";
+            setTimeout(()=>{
+                message.style.top = "-50px";
+            },3000);
+        }
+        else{
+            removeloginform();
+            let message = document.getElementsByClassName("message")[1];
+            message.innerHTML = `<p><strong>Error ! </strong>${data1['result']}</p><h2 class="removeMessage" onclick="removeMessageBox(this)">&times;</h2>`;
+            message.style.top = "0px";
+            setTimeout(()=>{
+                message.style.top = "-50px";
+            },5000);
+        }
+    });
+});
+
+

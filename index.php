@@ -6,60 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forum</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/signupandlogin.css">
 </head>
 <body>
-    <div class="message"></div>
-    <div class="message" style="background:red;"></div>
-    <div id="signupform">
-        <div>
-            <h2>Signup Now</h2>
-            <h3 id="signupcross">&times;</h3>
-        </div>
-        <form method="post">
-            <div>
-                <input type="text" id="firstname" placeholder="First Name" require>
-                <input type="text" id="lastname" placeholder="Last Name" require>
-            </div>
-            <input type="email" id="email" placeholder="Email" require>
-            <input type="password" id="password" placeholder="Password" require>
-            <input type="password" id="cpassword" placeholder="Confirm Password" require>
-            <button type="button" id="signupformsubmitBtn">Create Account</button>
-        </form>
-    </div>
-    
+    <?php
+        require 'signupandlogin.php';
+    ?>
     <div class="container">
-            <div id="hamburgurmenudiv">
-                <div id="canclebtn">
-                    <div></div>
-                    <div></div>
-                </div>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Questions</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <header>
-                <h2>LOGO</h2>
-                <div>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Questions</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                    <div id="hamburgermenu">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div>
-                        <button id="signup">SignUp</button>
-                        <button id="login">Login</button>
-                    </div>
-                </div>
-            </header>
+            <?php
+                require 'header.php';
+            ?>
         
             <div id="mainContent">
                 <h1>Topics</h1>

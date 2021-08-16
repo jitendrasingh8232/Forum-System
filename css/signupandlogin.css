@@ -1,0 +1,154 @@
+
+.message{
+    position: absolute;
+    top: -50px;
+    left: 0px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 20px; 
+    background-color: rgb(5, 192, 5);
+    color: #fff;
+    transition: all 0.5s ease;
+}
+.message p{
+    font-size: calc(15px + 0.4vw);
+    padding-top: 2px;
+}
+#signupform{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 40px;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    z-index: 11;
+    overflow: hidden;
+    background-color: #181818;
+    display: none;
+}
+#signupform::before{
+    content: "";
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transform: translate(-50%,-50%);
+    background-color: var(--main-color);
+    z-index: -1;
+}
+#signupform > div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    z-index: 111;
+}
+#signupform div h3{
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+#signupform h2{
+    border-left: 3px solid red;
+    padding-left: 15px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+#signupform form{
+    display: flex;
+    flex-direction: column;
+}
+#signupform form div input:first-child{
+    margin-right: 8px;
+}
+#signupform form input{
+    height: 35px;
+    margin-bottom: 10px;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    padding-left: 8px;
+}
+#signupform form button{
+    border: 2px solid var(--main-color);
+    background: var(--main-color);
+    border-radius: 5px;
+    padding: 7px 25px;;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+
+}
+#loginform{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 40px;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    z-index: 11;
+    overflow: hidden;
+    background-color: #181818;
+    display: none;
+}
+#loginform::before{
+    content: "";
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transform: translate(-50%,-50%);
+    background-color: var(--main-color);
+    z-index: -1;
+}
+#loginform > div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    z-index: 111;
+}
+#loginform div h3{
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+#loginform h2{
+    border-left: 3px solid red;
+    padding-left: 15px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+#loginform form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+#loginform form div input:first-child{
+    margin-right: 8px;
+}
+#loginform form input{
+    height: 35px;
+    margin-bottom: 10px;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    padding-left: 8px;
+}
+#loginform form button{
+    border: 2px solid var(--main-color);
+    background: var(--main-color);
+    border-radius: 5px;
+    padding: 7px 25px;;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+
+}
