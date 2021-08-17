@@ -1,3 +1,13 @@
+<?php
+    require 'assets/config.php';
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
+    else{
+        header("Location: index.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,9 +30,6 @@
     <?php
         require 'signupandlogin.php';
     ?>
-    <?php
-        require 'login.php';
-    ?>
 
     <div class="container">
         <?php
@@ -30,16 +37,27 @@
         ?>
 
         <div id="questions">
-            <div class="question">
-                <h2>This is the title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit rem ut, libero culpa quae nemo quis atque aspernatur,           temporibus exercitationem repellendus. Voluptatem repudiandae quae ipsa, officia minus autem animi ut.
-                    dignissimos delectus accusantium incidunt tenetur iusto numquam minus enim quisquam aperiam recusandae cumque.
-                </p>
-                <button class="questionReadMoreBtn">Read More</button>
-            </div>
+            <?php
+                $sql = "SELECT * FROM `questions` WHERE questiontype = '$id'";
+                $sqlquery = mysqli_query($connect,$sql);
+                if(mysqli_num_rows($sqlquery) > 0){
+                    while($row = mysqli_fetch_assoc($sqlquery)){
+                        echo '<div class="question">
+                            <h2>'.$row['title'].'</h2>
+                            <p>
+                            '.substr($row['description'],0,400).' ...'.'
+                            </p>
+                            <button class="questionReadMoreBtn">Read More</button>
+                        </div>';
+                    }
+                }
+                else{
+                    echo '<h2>Sorry ! No Questins Found</h2>';
+                }
+            ?>
         </div>
 
     </div>
 </body>
-<script src="js/index.js"></script>
+<script src="js/header.js"></script>
 </html>

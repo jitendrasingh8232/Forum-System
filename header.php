@@ -25,8 +25,18 @@
                         <div></div>
                     </div>
                     <div id="loginandsignbutton">
-                        <button id="signup">SignUp</button>
-                        <button id="login">Login</button>
+                        <?php
+                            session_start();
+                            if(isset($_SESSION['loggedin'])){
+                                echo '<h3 id="username">'.$_SESSION['username'].'</h3>';
+                                echo '<div class="logout">LogOut</div>';
+                            }
+                            else{
+                                echo '<button id="signup">SignUp</button>
+                                <button id="login">Login</button>';
+                            }
+                        ?>
+
                     </div>
                 </div>
             </header>

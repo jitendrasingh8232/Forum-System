@@ -22,7 +22,6 @@
                 $_SESSION['email'] = $row['email'];
                 $success['result'] = "Login Successfullly";
                 $success['isfail'] = "success";
-                $success['username'] = $_SESSION['username'];
                 print_r(json_encode($success));
             }
             else{

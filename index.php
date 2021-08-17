@@ -32,7 +32,7 @@
                                 echo '<div class="topic">
                                     <h2>'.$row['topicName'].'</h2>
                                     <p>'.$row['description'].'</p>
-                                    <button class="gobutton">Read More</button>
+                                    <a href="questions.php?id='.$row['sr'].'" class="gobutton">Get Questions</a>
                                 </div>';
                             }
                         }
@@ -46,5 +46,5 @@
     </div>
 
 </body>
-<script src="js/index.js"></script>
+<script src="js/header.js"></script>
 </html>

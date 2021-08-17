@@ -142,11 +142,10 @@ loginformsubmitBtn.addEventListener("click",()=>{
         if (data1['isfail'] == "success") {
             console.log("This is an success");
             removeloginform();
-            let loginandsignbutton = document.getElementById("loginandsignbutton");
-            loginandsignbutton.innerHTML = `<h3 id="username">${data1['username']}<h3>`;
             let message = document.getElementsByClassName("message")[0];
             message.innerHTML = `<p><strong>Success ! </strong>${data1['result']}</p><h2 class="removeMessage" onclick="removeMessageBox(this)">&times;</h2>`;
             message.style.top = "0px";
+            window.location.href = "index.php";
             setTimeout(()=>{
                 message.style.top = "-50px";
             },3000);
@@ -164,3 +163,20 @@ loginformsubmitBtn.addEventListener("click",()=>{
 });
 
 
+let username = document.getElementById("username");
+if(username){
+    username.addEventListener("click",()=>{
+        let logout = document.getElementsByClassName("logout")[0];
+        logout.classList.toggle("logoutactive");
+        logout.addEventListener("click",()=>{
+            fetch("assets/logout.php").then((response)=>{
+                return response.text();
+            }).then((data)=>{
+                data = JSON.parse(data);
+                if(data['isfail'] == "success"){
+                    window.location.href = "index.php";
+                }
+            })
+        });
+    });
+}

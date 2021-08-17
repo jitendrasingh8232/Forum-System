@@ -68,6 +68,28 @@ header h2{
     font-size: 30px;
     color: #fff;;
 }
+header h3{
+    color: #fff;
+    border: 2px solid var(--main-color);
+    padding: 7px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+header .logout{
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    padding: 7px 20px;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+}
+.logout.logoutactive{
+    display: block;
+}
 header ul{
     display: flex;
     list-style: none;

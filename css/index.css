@@ -34,7 +34,8 @@
     color: #fff;
     font-size: 15px;
     transition: all 0.3s ease;
-    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
 }
 #topics .topic .gobutton:hover{
     background-color: transparent;
