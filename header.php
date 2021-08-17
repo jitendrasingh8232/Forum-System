@@ -14,8 +14,8 @@
                 <h2>LOGO</h2>
                 <div>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Questions</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="index.php">Questions</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>

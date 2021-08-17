@@ -47,7 +47,7 @@
                             <p>
                             '.substr($row['description'],0,400).' ...'.'
                             </p>
-                            <button class="questionReadMoreBtn">Read More</button>
+                            <a href="question.php?questionid='.$row['sr'].'" class = "questionReadMoreBtn">Read More</a>
                         </div>';
                     }
                 }

@@ -11,6 +11,16 @@
     $password = md5($decode['password']);
     $cpassword = md5($decode['cpassword']);
 
+    $firstname = str_replace("<","&lt;",$firstname);
+    $firstname = str_replace(">","&gt;",$firstname);
+
+    $lastname = str_replace("<","&lt;",$lastname);
+    $lastname = str_replace(">","&gt;",$lastname);
+    
+    $email = str_replace("<","&lt;",$email);
+    $email = str_replace(">","&gt;",$email);
+
+
     $failure = [];
     $success = [];
 
