@@ -145,7 +145,8 @@ loginformsubmitBtn.addEventListener("click",()=>{
             let message = document.getElementsByClassName("message")[0];
             message.innerHTML = `<p><strong>Success ! </strong>${data1['result']}</p><h2 class="removeMessage" onclick="removeMessageBox(this)">&times;</h2>`;
             message.style.top = "0px";
-            window.location.href = "index.php";
+            let mycurrentpage = window.location.href;
+            window.location.href = mycurrentpage;
             setTimeout(()=>{
                 message.style.top = "-50px";
             },3000);
@@ -174,7 +175,8 @@ if(username){
             }).then((data)=>{
                 data = JSON.parse(data);
                 if(data['isfail'] == "success"){
-                    window.location.href = "index.php";
+                    let mycurrentpage = window.location.href;
+                    window.location.href = mycurrentpage;
                 }
             })
         });

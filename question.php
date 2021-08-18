@@ -9,10 +9,11 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if(isset($_POST['addSolutionBtn'])){
+            $email = $_POST['email'];
             $desc = $_POST['addSolutionData'];
             $desc = str_replace("<","&lt;",$desc);
             $desc = str_replace(">","&gt;",$desc);
-            $sql = "INSERT INTO `solutions` (`sr`, `description`, `questionid`) VALUES (NULL, '$desc', '$questionid');";
+            $sql = "INSERT INTO `solutions` (`sr`, `description`, `questionid`,`email`) VALUES (NULL, '$desc', '$questionid','$email');";
             $sqlquery = mysqli_query($connect,$sql);
 
         }
@@ -68,21 +69,42 @@
                 <div id="addsolution">
                     <h2>Add Solution </h2>
                     <div>
-                        <form action=<?php echo 'question.php?questionid='.$questionid ?> method="post">
-                            <textarea id="addSolutionData" name="addSolutionData" required></textarea>
-                            <input type="submit" id="addSolutionBtn" value = "Add Solution" name="addSolutionBtn">
-                        </form>
+                        <?php
+                            if(isset($_SESSION['loggedin'])){
+                                $email = $_SESSION['email'];
+                                echo '<form action=question.php?questionid='.$questionid.' method="post">
+                                        <textarea id="addSolutionData" name="addSolutionData" required></textarea>
+                                        <input type = "hidden" name = "email" value = '.$email.'>
+                                        <input type="submit" id="addSolutionBtn" value = "Add Solution" name="addSolutionBtn">
+                                    </form>';
+                            }
+                            else{
+                                echo '<h2>Please Login first to Submit Your Solutions !</h2>';
+                            }
+                        ?>
                     </div>
                 </div>
                 <div id="previousSolutions">
                     <h2>Previous Solutions </h2>
                     <?php
-                        $sql = "SELECT * FROM `solutions` WHERE questionid = '$questionid'";
+                        $sql = "SELECT * FROM `solutions` WHERE questionid = '$questionid' ORDER BY sr DESC";
                         $sqlquery = mysqli_query($connect,$sql);
                         if (mysqli_num_rows($sqlquery) >  0){
                             while($row = mysqli_fetch_assoc($sqlquery)){
-                                echo '<div class="solution">
-                                <p>'.$row['description'].'</p>
+                                if(isset($_SESSION['loggedin'])){
+                                    $email = $_SESSION['email'];
+                                    if($row['email'] == $email){
+                                        echo '<div class="solution" style="border:1px solid red;border-radius:5px;">';
+                                    }
+                                    else{
+                                        echo '<div class="solution">';
+                                    }
+                                }
+                                else{
+                                    echo '<div class="solution">';
+                                }
+
+                                echo '<p>'.$row['description'].'</p>
                             </div>';
                             }
                         }
